@@ -14,3 +14,20 @@
 {
     background-color: #E8DECC;
 }
+
+.tamanho21
+{
+    font-size: 21px;
+}
+
+.tamanho24
+{
+    font-size: 24px;
+}
+
+.progresso, .progresso75, .progresso100
+{
+    appearance: none;
+    height: 20px;
+    border: none;
+}

@@ -11,15 +11,24 @@
             <ion-item ng-repeat="(key, item) in passos" ng-class="{'selecionado': item.selected}">
                 <div class="row">
                     <div class="col col-50">
-                        <h2>{{item.titulo}}</h2>
-                        <p><i class="icon ion-android-stopwatch"></i> {{item.duracao}} minutos</p>
+                        <h2>{{item.titulo}}
+                            <a href="#" title="Detalhes" class="tamanho21">
+                                <i class="icon ion-information-circled"></i>
+                            </a>
+                        </h2>
+                        <p>
+                            <i class="icon ion-android-time tamanho21"></i> {{item.duracao}} minutos
+                        </p>
                     </div>
-                    <div class="col col-50 text-right" ng-show="key === passoatual">
-                        {{item.tempoform}}
+                    <div class="col col-40 text-right">
+                        <span ng-show="key <= passoatual" style="font-size: 16px; font-weight: bold">{{item.tempoform}}</span>
                         <br />
-                        <a href="#" ng-click="mudarPasso()">
-                            Próximo
-                        </a>
+                        <a href="#" class="tamanho24" ng-click="key == passoatual ? mudarPasso() : ''" title="{{item.oktitle}}" ng-show="key <= passoatual"><i class="icon {{item.okico}}"></i></a>
+                        &nbsp;
+                        <a href="#" class="tamanho24" ng-click="pularPasso()" title="Cancelar" ng-show="key === passoatual"><i class="icon ion-skip-forward"></i></a>
+                    </div>
+                    <div class="col col-10" style="padding-left: 15px; padding-right: 15px">
+                        <progress max="{{item.duracao * 60}}" value="{{ item.segundos === (item.duracao * 60) ? item.duracao : item.segundos}}" ng-show="key <= passoatual" class="progresso"></progress>
                     </div>
                 </div>
             </ion-item>

@@ -3,12 +3,12 @@ angular.module("grupofamiliar")
             var temporizador = null;
     
             $scope.passos = [
-                { titulo: "Orar-ler e Oração", duracao: 5, iniciado: false, minutos: 0, tempoform: "0m00" },
-                { titulo: "Louvor", duracao: 25, iniciado: false, minutos: 0, tempoform: "0m00" },
-                { titulo: "Nutrivídeo", duracao: 20, iniciado: false, minutos: 0, tempoform: "0m00" },
-                { titulo: "Palavra de Nutrição", duracao: 20, iniciado: false, minutos: 0, tempoform: "0m00" },
-                { titulo: "Compartilhar da Palavra", duracao: 10, iniciado: false, minutos: 0, tempoform: "0m00" },
-                { titulo: "Oração Final", duracao: 5, iniciado: false, minutos: 0, tempoform: "0m00" }
+                { titulo: "Orar-ler e Oração", duracao: 5, iniciado: false, segundos: 0, tempoform: "0m00", okico: "ion-checkmark", oktitle: "Finalizar" },
+                { titulo: "Louvor", duracao: 25, iniciado: false, segundos: 0, tempoform: "0m00", okico: "ion-checkmark", oktitle: "Finalizar" },
+                { titulo: "Nutrivídeo", duracao: 20, iniciado: false, segundos: 0, tempoform: "0m00", okico: "ion-checkmark", oktitle: "Finalizar" },
+                { titulo: "Palavra de Nutrição", duracao: 20, iniciado: false, segundos: 0, tempoform: "0m00", okico: "ion-checkmark", oktitle: "Finalizar" },
+                { titulo: "Compartilhar da Palavra", duracao: 10, iniciado: false, segundos: 0, tempoform: "0m00", okico: "ion-checkmark", oktitle: "Finalizar" },
+                { titulo: "Oração Final", duracao: 5, iniciado: false, segundos: 0, tempoform: "0m00", okico: "ion-checkmark", oktitle: "Finalizar" }
             ];
     
             $scope.passoatual   = -1;
@@ -17,8 +17,34 @@ angular.module("grupofamiliar")
             $scope.mudarPasso = function() {
                 if ($scope.passoatual > -1)
                 {
-                    $scope.passos[$scope.passoatual].selected = false;
+                    var atual = $scope.passos[$scope.passoatual];
+                    
+                    atual.selected = false;
                     $scope.finalizarTemporizador();
+                    atual.okico = "ion-checkmark-circled";
+                    atual.oktitle = "Finalizado";
+                }
+                
+                $scope.passoatual++;
+                
+                if ($scope.passoatual <= 5)
+                {
+                    $scope.passos[$scope.passoatual].selected = true;
+                    $scope.iniciarTemporizador();
+                }
+            };
+    
+            $scope.pularPasso = function() {
+                if ($scope.passoatual > -1)
+                {
+                    var atual = $scope.passos[$scope.passoatual];
+                    
+                    atual.selected = false;
+                    atual.segundos = 0;
+                    atual.tempoform = "0m00";
+                    $scope.finalizarTemporizador();
+                    atual.okico = "ion-close-circled";
+                    atual.oktitle = "Cancelado";
                 }
                 
                 $scope.passoatual++;
@@ -31,11 +57,11 @@ angular.module("grupofamiliar")
             };
     
             $scope.onTimeout = function() {
-                $scope.passos[$scope.passoatual].minutos++;
+                $scope.passos[$scope.passoatual].segundos++;
                 
-                var minnum = $scope.passos[$scope.passoatual].minutos;
-                var minutos = Math.floor(minnum / 60);
-                var segundos = minnum % 60;
+                var segnum = $scope.passos[$scope.passoatual].segundos;
+                var minutos = Math.floor(segnum / 60);
+                var segundos = segnum % 60;
                 
                 if (segundos < 10) segundos = "0" + segundos;
                 
@@ -49,45 +75,6 @@ angular.module("grupofamiliar")
             };
     
             $scope.finalizarTemporizador = function() {
-                //$scope.$broadcast("timer-stopped", $scope.counter);
-                //$scope.counter = 0;
                 $timeout.cancel(temporizador);
             };
         });
-
-
-
-/*
-Código do temporizador
-
-angular.module('TimerApp', [])
-.controller('TimerCtrl', function($scope, $timeout) {
-    $scope.counter = 90;
-    var mytimeout = null; // the current timeoutID
-    // actual timer method, counts down every second, stops on zero
-    $scope.onTimeout = function() {
-        if($scope.counter ===  0) {
-            $scope.$broadcast('timer-stopped', 0);
-            $timeout.cancel(mytimeout);
-            return;
-        }
-        $scope.counter--;
-        mytimeout = $timeout($scope.onTimeout, 1000);
-    };
-    $scope.startTimer = function() {
-        mytimeout = $timeout($scope.onTimeout, 1000);
-    };
-    // stops and resets the current timer
-    $scope.stopTimer = function() {
-        $scope.$broadcast('timer-stopped', $scope.counter);
-        $scope.counter = 90;
-        $timeout.cancel(mytimeout);
-    };
-    // triggered, when the timer stops, you can do something here, maybe show a visual indicator or vibrate the device
-    $scope.$on('timer-stopped', function(event, remaining) {
-        if(remaining === 0) {
-            console.log('your time ran out!');
-        }
-    });
-});
-*/
