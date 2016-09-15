@@ -1,0 +1,16 @@
+.center
+{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.selecionado
+{
+    background-color: #CCD6E8;
+}
+
+.continuar
+{
+    background-color: #E8DECC;
+}

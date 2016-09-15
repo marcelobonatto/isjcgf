@@ -1,0 +1,28 @@
+<ion-view padding="true">
+    <ion-nav-title>Agenda - Grupo Familiar</ion-nav-title>
+    <ion-content>
+        <div class="item-input-inset">
+            <button class="button selecionado center" ng-click="mudarPasso()" ng-disabled="passoatual > -1">
+                Começar <i class="icon ion-arrow-right-b"></i>
+            </button>
+        </div>
+        <br />
+        <ion-list>
+            <ion-item ng-repeat="(key, item) in passos" ng-class="{'selecionado': item.selected}">
+                <div class="row">
+                    <div class="col col-50">
+                        <h2>{{item.titulo}}</h2>
+                        <p><i class="icon ion-android-stopwatch"></i> {{item.duracao}} minutos</p>
+                    </div>
+                    <div class="col col-50 text-right" ng-show="key === passoatual">
+                        {{item.tempoform}}
+                        <br />
+                        <a href="#" ng-click="mudarPasso()">
+                            Próximo
+                        </a>
+                    </div>
+                </div>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
