@@ -1,5 +1,8 @@
 {
     "jscodehints.detectedExclusions": [
-        "D:/Projetos/cordova/GrupoFamiliar/isjcgf/gulpfile.js"
+        "D:/Projetos/cordova/GrupoFamiliar/isjcgf/gulpfile.js",
+        "D:/Projetos/cordova/GrupoFamiliar/isjcgf/platforms/android/assets/www/js/controllers.js",
+        "D:/Projetos/cordova/GrupoFamiliar/isjcgf/platforms/android/assets/www/js/pace.min.js",
+        "D:/Projetos/cordova/GrupoFamiliar/isjcgf/platforms/android/assets/www/lib/ionic/js/angular-ui/angular-ui-router.min.js"
     ]
 }

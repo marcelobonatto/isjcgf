@@ -1,15 +1,13 @@
 angular.module("grupofamiliar")
-       .controller("AgendaCtrl", function($scope, $timeout) {
+       .controller("AgendaCtrl", function($scope, $timeout, $http) {
             var temporizador = null;
     
-            $scope.passos = [
-                { titulo: "Orar-ler e Oração", duracao: 5, iniciado: false, segundos: 0, tempoform: "0m00", okico: "ion-checkmark", oktitle: "Finalizar" },
-                { titulo: "Louvor", duracao: 25, iniciado: false, segundos: 0, tempoform: "0m00", okico: "ion-checkmark", oktitle: "Finalizar" },
-                { titulo: "Nutrivídeo", duracao: 20, iniciado: false, segundos: 0, tempoform: "0m00", okico: "ion-checkmark", oktitle: "Finalizar" },
-                { titulo: "Palavra de Nutrição", duracao: 20, iniciado: false, segundos: 0, tempoform: "0m00", okico: "ion-checkmark", oktitle: "Finalizar" },
-                { titulo: "Compartilhar da Palavra", duracao: 10, iniciado: false, segundos: 0, tempoform: "0m00", okico: "ion-checkmark", oktitle: "Finalizar" },
-                { titulo: "Oração Final", duracao: 5, iniciado: false, segundos: 0, tempoform: "0m00", okico: "ion-checkmark", oktitle: "Finalizar" }
-            ];
+            $scope.passos = [];
+    
+            $http.get("data/agenda.json")
+                 .then(function successCallback(response) {
+                            $scope.passos = response.data;
+                        });
     
             $scope.passoatual   = -1;
             $scope.selecionado  = false;
@@ -42,6 +40,7 @@ angular.module("grupofamiliar")
                     atual.selected = false;
                     atual.segundos = 0;
                     atual.tempoform = "0m00";
+                    atual.perc = 0;
                     $scope.finalizarTemporizador();
                     atual.okico = "ion-close-circled";
                     atual.oktitle = "Cancelado";
@@ -59,13 +58,16 @@ angular.module("grupofamiliar")
             $scope.onTimeout = function() {
                 $scope.passos[$scope.passoatual].segundos++;
                 
+                var total = $scope.passos[$scope.passoatual].durseg;
                 var segnum = $scope.passos[$scope.passoatual].segundos;
+                var perc = Math.floor((segnum / total) * 100);
                 var minutos = Math.floor(segnum / 60);
                 var segundos = segnum % 60;
                 
                 if (segundos < 10) segundos = "0" + segundos;
                 
                 $scope.passos[$scope.passoatual].tempoform = minutos + "m" + segundos;
+                $scope.passos[$scope.passoatual].perc = (perc > 100 ? 100 : perc);
                 
                 temporizador = $timeout($scope.onTimeout, 1000);
             };

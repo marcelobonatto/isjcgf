@@ -31,3 +31,43 @@
     height: 20px;
     border: none;
 }
+
+#progresso
+{
+    width: 100%;
+    height: 10px;
+    border: solid 1px #000000;
+    background-color: #C0C0C0;
+}
+
+#barra
+{
+    height: 8px;    
+    width: 0%;
+    transition: background-color 0.5s;
+}
+
+#barra.p000
+{
+    background-color: #6FA2FF;
+}
+
+#barra.p050
+{
+    background-color: #70FF7E;
+}
+
+#barra.p075
+{
+    background-color: #FFF71C;
+}
+
+#barra.p090
+{
+    background-color: #FF4300;
+}
+
+#barra.p100
+{
+    background-color: #E24141;
+}
