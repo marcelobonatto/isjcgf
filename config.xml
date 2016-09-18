@@ -5,7 +5,7 @@
         Ferramentas para auxiliar os líderes de grupo familiar e também para quem participa, baseado no livro Estabelecendo o Modelo do Monte.
     </description>
   <author email="marcelobonatto@gmail.com">&#xD;
-      Marcelo Bonatto&#xD;
+      Marcelo Bonatto
     </author>
   <content src="index.html"/>
   <access origin="*"/>
@@ -18,8 +18,14 @@
   <preference name="BackupWebStorage" value="none"/>
   <preference name="SplashScreen" value="screen"/>
   <feature name="StatusBar">
-    <param name="ios-package" value="CDVStatusBar" onload="true"/>
+    <param name="ios-package" onload="true" value="CDVStatusBar"/>
   </feature>
+  <plugin name="cordova-plugin-device" spec="~1.1.3"/>
+  <plugin name="cordova-plugin-console" spec="~1.0.4"/>
+  <plugin name="cordova-plugin-whitelist" spec="~1.3.0"/>
+  <plugin name="cordova-plugin-splashscreen" spec="~4.0.0"/>
+  <plugin name="cordova-plugin-statusbar" spec="~2.2.0"/>
+  <plugin name="ionic-plugin-keyboard" spec="~2.2.1"/>
   <platform name="android">
     <icon src="resources\android\icon\drawable-ldpi-icon.png" density="ldpi"/>
     <icon src="resources\android\icon\drawable-mdpi-icon.png" density="mdpi"/>

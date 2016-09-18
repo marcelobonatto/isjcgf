@@ -1,5 +1,4 @@
-<ion-view padding="true">
-    <ion-nav-title>Agenda - Grupo Familiar</ion-nav-title>
+<ion-view view-title="Agenda - Grupo Familiar">
     <ion-content>
         <div class="item-input-inset">
             <button class="button selecionado center" ng-click="mudarPasso()" ng-disabled="passoatual > -1">
@@ -9,7 +8,6 @@
         <br />
         <ion-list>
             <ion-item ng-repeat="(key, item) in passos" ng-class="{'selecionado': item.selected}">
-                <!--<progress max="{{item.duracao * 60}}" value="{{ item.segundos === (item.duracao * 60) ? item.duracao : item.segundos}}" ng-show="key <= passoatual" class="progresso"></progress>-->
                 <div id="progresso">
                     <div id="barra" ng-class="{'p000': item.perc < 50, 'p050': item.perc >=50 && item.perc < 75, 'p075': item.perc >= 75 && item.perc < 90, 'p090': item.perc >= 90 && item.perc < 100, 'p100': item.perc === 100}" style="{{ 'width: ' + item.perc + '%' }}"></div>
                 </div>
@@ -25,11 +23,15 @@
                         </p>
                     </div>
                     <div class="col col-30 text-right">
-                        <span ng-show="key <= passoatual" style="font-size: 16px; font-weight: bold">{{item.tempoform}}</span>
-                        <br />
-                        <a href="#" class="tamanho24" ng-click="key == passoatual ? mudarPasso() : ''" title="{{item.oktitle}}" ng-show="key <= passoatual"><i class="icon {{item.okico}}"></i></a>
+                        <span ng-show="key <= passoatual" style="font-size: 24px; font-weight: bold">{{item.tempoform}}</span>
                         &nbsp;
-                        <a href="#" class="tamanho24" ng-click="pularPasso()" title="Cancelar" ng-show="key === passoatual"><i class="icon ion-skip-forward"></i></a>
+                        <!-- <a href="#" class="botaocirc" ng-click="key == passoatual ? mudarPasso() : ''" title="{{item.oktitle}}" ng-show="key <= passoatual"><i class="icon {{item.okico}}"></i></a>
+                        &nbsp;
+                        <a href="#" class="botaocirc" ng-click="pularPasso()" title="Cancelar" ng-show="key === passoatual"><i class="icon ion-skip-forward"></i></a>-->
+                        
+                        <button class="botaocirc tamanho24" ng-click="key == passoatual ? mudarPasso() : ''" title="{{item.oktitle}}" ng-show="key <= passoatual"><i class="icon {{item.okico}}"></i></button>
+                        &nbsp;
+                        <button class="botaocirc tamanho24" ng-click="pularPasso()" title="Cancelar" ng-show="key === passoatual"><i class="icon ion-skip-forward"></i></button>
                     </div>
                 </div>
             </ion-item>

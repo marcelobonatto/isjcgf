@@ -71,3 +71,13 @@
 {
     background-color: #E24141;
 }
+
+.botaocirc
+{
+    background: #387EF5;
+    border: none;
+    border-radius: 50%;
+    color: #FFFFFF;
+    width: 36px;
+    height: 36px;
+}
