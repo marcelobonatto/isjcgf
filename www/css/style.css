@@ -15,14 +15,14 @@
     background-color: #E8DECC;
 }
 
+.tamanho18
+{
+    font-size: 18px;
+}
+
 .tamanho21
 {
     font-size: 21px;
-}
-
-.tamanho24
-{
-    font-size: 24px;
 }
 
 .progresso, .progresso75, .progresso100
@@ -78,6 +78,6 @@
     border: none;
     border-radius: 50%;
     color: #FFFFFF;
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
 }

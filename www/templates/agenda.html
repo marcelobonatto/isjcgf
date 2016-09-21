@@ -14,7 +14,7 @@
                 <div class="row">
                     <div class="col col-70">
                         <h2>{{item.titulo}}
-                            <a href="#" title="Detalhes" class="tamanho21">
+                            <a href="" ng-click="abrirPasso(key);" title="Detalhes" class="tamanho21">
                                 <i class="icon ion-information-circled"></i>
                             </a>
                         </h2>
@@ -23,18 +23,37 @@
                         </p>
                     </div>
                     <div class="col col-30 text-right">
-                        <span ng-show="key <= passoatual" style="font-size: 24px; font-weight: bold">{{item.tempoform}}</span>
+                        <span ng-show="key <= passoatual" style="font-size: 21px; font-weight: bold">{{item.tempoform}}</span>
+                        &nbsp;                    
+                        <button class="botaocirc tamanho21" ng-click="key == passoatual ? mudarPasso() : ''" title="{{item.oktitle}}" ng-show="key <= passoatual"><i class="icon {{item.okico}}"></i></button>
                         &nbsp;
-                        <!-- <a href="#" class="botaocirc" ng-click="key == passoatual ? mudarPasso() : ''" title="{{item.oktitle}}" ng-show="key <= passoatual"><i class="icon {{item.okico}}"></i></a>
-                        &nbsp;
-                        <a href="#" class="botaocirc" ng-click="pularPasso()" title="Cancelar" ng-show="key === passoatual"><i class="icon ion-skip-forward"></i></a>-->
-                        
-                        <button class="botaocirc tamanho24" ng-click="key == passoatual ? mudarPasso() : ''" title="{{item.oktitle}}" ng-show="key <= passoatual"><i class="icon {{item.okico}}"></i></button>
-                        &nbsp;
-                        <button class="botaocirc tamanho24" ng-click="pularPasso()" title="Cancelar" ng-show="key === passoatual"><i class="icon ion-skip-forward"></i></button>
+                        <button class="botaocirc tamanho21" ng-click="pularPasso()" title="Cancelar" ng-show="key === passoatual"><i class="icon ion-skip-forward"></i></button>
                     </div>
                 </div>
             </ion-item>
         </ion-list>
+        <script id="templates/passodetalhe.html" type="text/ng-template">
+            <div class="modal">
+                <ion-header-bar class="bar-secondary bar-calm">
+                    <h1 class="title">{{dadopassosel.titulo}}</h1>
+                    <button class="button button-clear" ng-click="fecharPasso();">
+                        <i class="icon ion-close"></i>
+                    </button>
+                </ion-header-bar>
+                <ion-content>
+                    <div class="row" style="padding-top: 20px">
+                        <div class="col col-80 col-offset-10">
+                            <p>
+                                <i class="icon ion-android-time tamanho21"></i> <strong>Tempo de duração:</strong> {{dadopassosel.duracao}} minutos
+                            </p>
+                            <strong>Conceito</strong>
+                            <p>
+                                Texto do conceito
+                            </p>
+                        </div>
+                    </div>
+                </ion-content>
+            </div>
+        </script>
     </ion-content>
 </ion-view>

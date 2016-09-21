@@ -1,6 +1,15 @@
 {
     "jscodehints.detectedExclusions": [
         "D:/Projetos/cordova/GrupoFamiliar/isjcgf/hooks/after_prepare/010_add_platform_class.js",
-        "D:/Projetos/cordova/GrupoFamiliar/isjcgf/platforms/android/platform_www/cordova.js"
+        "D:/Projetos/cordova/GrupoFamiliar/isjcgf/platforms/android/platform_www/cordova.js",
+        "D:/Projetos/Cordova/GrupoFamiliar/isjcgf/platforms/android/platform_www/cordova.js",
+        "D:/Projetos/Cordova/GrupoFamiliar/isjcgf/platforms/android/platform_www/cordova_plugins.js",
+        "D:/Projetos/Cordova/GrupoFamiliar/isjcgf/plugins/cordova-plugin-background-mode/www/background-mode.js",
+        "D:/Projetos/Cordova/GrupoFamiliar/isjcgf/plugins/cordova-plugin-console/tests/tests.js",
+        "D:/Projetos/Cordova/GrupoFamiliar/isjcgf/plugins/cordova-plugin-console/www/console-via-logger.js",
+        "D:/Projetos/Cordova/GrupoFamiliar/isjcgf/plugins/cordova-plugin-console/www/logger.js",
+        "D:/Projetos/Cordova/GrupoFamiliar/isjcgf/plugins/cordova-plugin-device/src/blackberry10/index.js",
+        "D:/Projetos/Cordova/GrupoFamiliar/isjcgf/plugins/cordova-plugin-device/src/browser/DeviceProxy.js",
+        "D:/Projetos/Cordova/GrupoFamiliar/isjcgf/www/js/controllers.js"
     ]
 }

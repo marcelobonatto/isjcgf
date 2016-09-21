@@ -5,8 +5,8 @@ angular.module("grupofamiliar")
             .state('app', {
             url: '/app',
             abstract: true,
-            templateUrl: 'templates/menu.html',
-            controller: 'AppCtrl'
+            templateUrl: 'templates/menu.html' /*,
+            controller: 'AppCtrl'*/
           })
 
           .state('app.inicio', {
@@ -14,6 +14,16 @@ angular.module("grupofamiliar")
             views: {
               'menuContent': {
                 templateUrl: 'templates/inicio.html'
+              }
+            }
+          })
+          
+          .state('app.meu', {
+            url: '/meu',
+            views: {
+              'menuContent': {
+                templateUrl: 'templates/meu.html',
+                controller: 'MeuCtrl'
               }
             }
           })
