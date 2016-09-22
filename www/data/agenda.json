@@ -7,11 +7,11 @@
         "tempoform": "0m00", 
         "okico": "ion-checkmark", 
         "oktitle": "Finalizar", 
-        "perc": 0 
+        "perc": 0
     },
     {   "titulo": "Louvor", 
         "duracao": 25, 
-        "durseg": 300, 
+        "durseg": 1500, 
         "iniciado": false, 
         "segundos": 0, 
         "tempoform": "0m00", 
@@ -19,19 +19,23 @@
         "oktitle": "Finalizar", 
         "perc": 0
     },
-    {   "titulo": "Nutrivídeo", 
+    {   "titulo": "Nutrivídeo e/ou Testemunhos, Dúvidas e Palavras", 
         "duracao": 20, 
-        "durseg": 300, 
+        "durseg": 1200, 
         "iniciado": false, 
         "segundos": 0, 
         "tempoform": "0m00", 
         "okico": "ion-checkmark", 
-        "oktitle": "Finalizar", 
+        "oktitle": "Finalizar",
+        "conceitos": [ { "nome": "Nutrivídeo", 
+                        "texto": "\"Na Igreja do Senhor Jesus Cristo, o Espírito trouxe o programa denomidado \"nutrivídeo\", que são DVDs com mensagens de 10 a 20 minutos para serem passadas nos grupos familiares e em outras programações da Igreja. Esta é a direção específica do Espírito para que os grupos familiares em todas as Igrejas estejam perseverando na doutrina dos apóstolos e ingerindo o mesmo pão espiritual.\" (1)"
+                       }
+                     ],
         "perc": 0
     },
     {   "titulo": "Palavra de Nutrição", 
         "duracao": 20, 
-        "durseg": 300, 
+        "durseg": 1200, 
         "iniciado": false, 
         "segundos": 0, 
         "tempoform": "0m00", 
@@ -39,9 +43,9 @@
         "oktitle": "Finalizar", 
         "perc": 0
     },
-    {   "titulo": "Compartilhar da Palavra", 
+    {   "titulo": "Compartilhar da Palavra em Grupo de 3 Pessoas", 
         "duracao": 10,
-        "durseg": 300,
+        "durseg": 600,
         "iniciado": false,
         "segundos": 0,
         "tempoform": "0m00",

@@ -1,5 +1,5 @@
 angular.module('grupofamiliar.controllers', [])
-
+/*
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
   // With the new view caching in Ionic, Controllers are only called
@@ -53,11 +53,12 @@ angular.module('grupofamiliar.controllers', [])
 })
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
-})
-.controller("AgendaCtrl", function($scope, $timeout, $http) {
-            var temporizador = null;
+})*/
+.controller("AgendaCtrl", function($scope, $timeout, $http, $ionicModal) {
+            var temporizador    = null;
     
-            $scope.passos = [];
+            $scope.passos       = [];
+            $scope.dadopassosel = null;
     
             $http.get("data/agenda.json")
                  .then(function successCallback(response) {
@@ -134,4 +135,30 @@ angular.module('grupofamiliar.controllers', [])
             $scope.finalizarTemporizador = function() {
                 $timeout.cancel(temporizador);
             };
+    
+            $ionicModal.fromTemplateUrl('templates/passodetalhe.html', {
+                    scope: $scope
+                }).then(function(modal) {
+                    $scope.modal = modal;
+                });
+    
+            $scope.abrirPasso = function(passo) {
+                $scope.dadopassosel = $scope.passos[passo];                
+                $scope.modal.show();  
+            };
+    
+            $scope.fecharPasso = function() {
+                $scope.modal.hide();
+            };
+        })
+.controller("MeuCtrl", function($scope, $http) {
+            $scope.estados      = [];
+            $scope.cidades      = [];
+            $scope.dias         = [ "DOM", "SEG", "TER", "QUA", "QUI", "SEX", "SAB" ];
+    
+            $http.get("data/ufcid.json")
+                 .then(function successCallback(response) {
+                            $scope.estados = response.data.estados;
+                            $scope.cidades = response.data.cidades;
+                        });
         });

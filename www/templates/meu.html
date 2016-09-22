@@ -1,0 +1,68 @@
+<ion-view view-title="Meu Grupo Familiar">
+    <ion-content>
+        <div class="text-center" style="margin-top: 30px">
+            <p>
+                Informe os dados do seu grupo familiar para anunciar a quem já tem o aplicativo
+                e também avisar para você a hora em que deve começar.
+            </p>
+        </div>
+        <div class="list">
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Nome dos donos da casa</span>
+                <input type="text" placeholder="ex.: João e Maria" />
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Endereço</span>
+                <input type="text" placeholder="ex.: Rua das Flores, 70 - apto 23" />
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Bairro</span>
+                <input type="text" placeholder="ex.: Portão">
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Bairro</span>
+                <input type="text" placeholder="ex.: Portão">
+            </label>
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    Estado
+                </div>
+                <select ng-model="selUF" ng-options="uf.nome for uf in estados">
+                    <option value="">--- Selecione ---</option>
+                </select>
+            </label>
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    Cidade
+                </div>
+                <select ng-model="selCidade" ng-options="cidade.nome for cidade in cidades | filter:{uf:selUF.nome}">
+                    <option value="">--- Selecione ---</option>
+                </select>
+            </label>
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    Dia do Grupo
+                </div>
+                <select ng-model="selDia" ng-options="dia for dia in dias">
+                    <option value="">--- Selecione ---</option>
+                </select>
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Horário</span>
+                <input type="time" placeholder="ex.: 20:00">
+            </label>
+            <ul class="list">
+                <li class="item item-toggle">
+                    Avisar o horário de início?
+                    <label class="toggle toggle-assertive">
+                        <input type="checkbox" />
+                        <div class="track">
+                            <div class="handle"></div>
+                        </div>
+                    </label>
+                </li>
+            </ul>
+        </div>
+        <button class="button button-block button-calm">GRAVAR</button>
+    </ion-content>
+</ion-view>
