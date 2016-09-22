@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="br.com.paodejuda.isjcgf" version="0.2.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="br.com.paodejuda.isjcgf" version="0.3.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>Grupo Familiar</name>
   <description>
         Ferramentas para auxiliar os líderes de grupo familiar e também para quem participa, baseado no livro Estabelecendo o Modelo do Monte.
